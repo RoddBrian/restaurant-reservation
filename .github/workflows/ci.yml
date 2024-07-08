@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -24,23 +24,23 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: src
+      working-directory: ./src
 
     - name: Lint code
       run: npm run lint
-      working-directory: src
+      working-directory: ./src
 
     - name: Run tests
       run: npm test
-      working-directory: src
+      working-directory: ./src
 
     - name: Build Docker image
-      run: docker build -t roddbrian/bookstore-inventory .
+      run: docker build -t roddbrian/restaurant-reservation .
       
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
     - name: Push Docker image to Docker Hub
       run: |
-        docker tag roddbrian/bookstore-inventory:latest roddbrian/bookstore-inventory:v1
-        docker push roddbrian/bookstore-inventory:v1
+        docker tag roddbrian/restaurant-reservation:latest roddbrian/restaurant-reservation:v1
+        docker push roddbrian/restaurant-reservation:v1
