@@ -1,0 +1,19 @@
+{
+  "name": "restaurant-reservation",
+  "version": "1.0.0",
+  "description": "Restaurant reservation system",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
